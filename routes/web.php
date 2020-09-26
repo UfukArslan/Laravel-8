@@ -15,7 +15,10 @@ use App\Http\Controllers\TaskController;
 */
 
 
-Route::get('tasks', [TaskController::class, 'showIndex'])->name('task.index');
+
+// Route::get('tasks', [TaskController::class, 'showIndex'])->name('task.index');
+
+// redirect()->route('task.index');
 
 // Route::get('/', function () {
 //     return view('welcome');
@@ -31,4 +34,6 @@ Route::get('tasks', [TaskController::class, 'showIndex'])->name('task.index');
 // Route::get('tasks/test/{id}', function($id) {
 //     return view('task', ['id'= $id]);
 // });
+
+Route::resource('tasks', TaskController::class);
 

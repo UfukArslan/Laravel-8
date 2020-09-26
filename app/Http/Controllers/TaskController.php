@@ -11,8 +11,18 @@ class TaskController extends Controller
     //     return 'Task #' . $id;
     // }
 
-        public function showIndex()
-    {
-        return 'index';
+
+    private $tasks;
+    public function __construct() {
+    $this->tasks = collect([
+        ['id' => 2, 'name' => 'Learn Laravel', 'duration' => 12],
+        ['id' => 3, 'name' => 'Learn RubyOnRails', 'duration' => 24]
+        ])->keyBy('id');
     }
+
+        public function index()
+    {
+        return view('task.index')->with('tasks', $this->tasks);
+    }
+
 }
