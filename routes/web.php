@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TaskController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +14,21 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+Route::get('tasks', [TaskController::class, 'showIndex'])->name('task.index');
+
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+
+// Route::get('tasks', function(){
+//     return 'Task liste';
+// });
+
+// Route::get('tasks/{id}', [TaskController::class, 'showTask']);
+
+// Route::get('tasks/test/{id}', function($id) {
+//     return view('task', ['id'= $id]);
+// });
+
