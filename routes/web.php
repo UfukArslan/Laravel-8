@@ -37,3 +37,9 @@ use App\Http\Controllers\TaskController;
 
 Route::resource('tasks', TaskController::class);
 
+// Route::get('/', [TaskController::class, 'index']);
+Route::get('/', function(){
+    return redirect('task.index');
+}
+
+);

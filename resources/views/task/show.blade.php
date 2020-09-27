@@ -4,5 +4,4 @@
 <p>
  <b>Name : </b>{{ $task['id' ]}}
 </p>
-
-<h2>hello</h2>
+<p><a href="{{ route('tasks.index') }}">Back to list</a></p>
