@@ -1,4 +1,4 @@
-
+<!-- extends permet de définir html de base va se servir le fichier ci-dessous -->
 @extends('layout')
 
 @section('content')
