@@ -23,11 +23,13 @@ class TaskController extends Controller
 
         public function index()
     {
+        // view fait référence au dossier view
         return view('task.index')->with('tasks', $this->tasks);
     }
 
         public function show( $task )
     {
+        // view fait référence au dossier view
         return view('task.show')->with('task', $this->tasks[$task]);
     }
 
