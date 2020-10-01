@@ -3,11 +3,7 @@
         <title>TodoMVC</title>
     </head>
     <body>
-        <div id="menu">
-
-            @yield('menu')
-        </div>
-        <div>
+        <div class="container mx-auto">
             @yield('content')
         </div>
     </body>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Task;
 
 class TaskController extends Controller
 {
@@ -30,11 +31,15 @@ class TaskController extends Controller
         public function show( $task )
     {
         // view fait référence au dossier view
-        return view('task.show')->with('task', $this->tasks[$task]);
+        // return view('task.show')->with('task', $this->tasks[$task]);
+        $task = Task::find($task);
+        return view('task.show')->with('task', $task);
+
 
     }
 
         public function create(){
+            $task = Task::find($task);
             return view('task.create');
     }
         public function store(Request $request){
@@ -42,3 +47,5 @@ class TaskController extends Controller
     }
 
 }
+
+

@@ -10,7 +10,7 @@
     @csrf
 
     <label>Task name</label>
-    <input type="text" id="name"/>
+    <input type="text" name='name'id="name"/>
     <button type='submit'>Save new task</button>
     <a href="{{route('tasks.index'}}">Return to tasl list</a>
 </form>
