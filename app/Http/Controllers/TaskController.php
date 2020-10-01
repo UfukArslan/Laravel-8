@@ -31,6 +31,14 @@ class TaskController extends Controller
     {
         // view fait référence au dossier view
         return view('task.show')->with('task', $this->tasks[$task]);
+
+    }
+
+        public function create(){
+            return view('task.create');
+    }
+        public function store(Request $request){
+            dd($request);
     }
 
 }

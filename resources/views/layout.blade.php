@@ -1,5 +1,6 @@
 <html>
     <head>
+        <title>TodoMVC</title>
     </head>
     <body>
         <div id="menu">

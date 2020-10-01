@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -15,6 +16,21 @@ class AppServiceProvider extends ServiceProvider
     {
         //
     }
+
+    public function up(){
+        Schema::table('tasks', function(Blueprint $table){
+            $table->foreignId('project_id');
+        });
+    }
+
+     public function down(){
+        Schema::table('tasks', function(Blueprint $table){
+            $table->dropColumn('project_id');
+        });
+    }
+
+
+
 
     /**
      * Bootstrap any application services.
