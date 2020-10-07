@@ -5,3 +5,7 @@
  <b>Name : </b>{{ $task['id' ]}}
 </p>
 <p><a href="{{ route('tasks.index') }}">Back to list</a></p>
+
+@section('head')
+    <script></script>
+@endsection
