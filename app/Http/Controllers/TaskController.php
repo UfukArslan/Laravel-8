@@ -33,4 +33,9 @@ class TaskController extends Controller
         return view('task.show')->with('task', $this->tasks[$task]);
     }
 
+        public function create()
+    {
+        return view('task.create');
+    }
+
 }
