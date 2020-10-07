@@ -9,9 +9,6 @@ class Project extends Model
 {
     use HasFactory;
 
-    //Eader loading permet de faire un précharge lorsqu'on appelle cette class
-    //protected $with = ['tasks'];
-
     protected $fillable = ['name'];
 
     public function tasks()
