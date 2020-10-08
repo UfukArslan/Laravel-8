@@ -10,6 +10,7 @@ class TaskController extends Controller
 {
     public function index ()
     {
+        // dd('test');
         $tasks = Task::all();
         return view('task.index')->with('tasks', $tasks);
     }
