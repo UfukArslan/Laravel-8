@@ -2,46 +2,40 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Task;
+use App\Http\Requests\TaskStoreRequest;
 use Illuminate\Http\Request;
 
 class TaskController extends Controller
 {
-    // public function showTask($id)
-    // {
-    //     return 'Task #' . $id;
-    // }
-
-    private $tasks;
-
-    public function __construct()
+    public function index ()
     {
-        $this->tasks = collect ([
-            ['id' => 2, 'name' => 'Learn Laravel', 'duration' => 12],
-            ['id' => 3, 'name' => 'Learn RudyOnRails', 'duration' => 24]
-        ])->keyBy('id');
+        $tasks = Task::all();
+        return view('task.index')->with('tasks', $tasks);
     }
 
-        public function index()
+    public function show( $task )
     {
-        // view fait référence au dossier view
-        return view('task.index')->with('tasks', $this->tasks);
+        $task = Task::find($task);
+        return view('task.show')->with('task', $task);
     }
 
-        public function show( $task )
-    {
-        // view fait référence au dossier view
-        // return view('task.show')->with('task', $this->tasks[$task]);
-    }
-
-        public function create()
+    public function create( )
     {
         return view('task.create');
     }
 
-        public function store( Request $request)
+    public function store( TaskStoreRequest $request )
     {
 
-        dd($request);
+        $task = Task::create($request->all());
+        return view('task.show')->with('task', $task);
     }
 
+    public function destroy( $task )
+    {
+        $task = Task::find($task);
+        $task->delete();
+        return redirect(route('tasks.index'));
+    }
 }

@@ -1,4 +1,3 @@
-<!-- extends permet de définir html de base va se servir le fichier ci-dessous -->
 @extends('layout')
 
 @section('content')
@@ -6,22 +5,29 @@
 
 <a href="{{ route('tasks.create') }}">New task</a>
 
-<table>
-    <thead>
+<table class="table-auto">
+  <thead>
+    <tr>
+      <th class="px-4 py-2">Id</th>
+      <th class="px-4 py-2">Name</th>
+      <th class="px-4 py-2">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    @foreach($tasks as $task)
         <tr>
-            <th class="px-4 py-2">Title</th>
-            <th class="px-4 py-2">Author</th>
-            <th class="px-4 py-2">Views</th>
+            <td>{{ $task->id }}</td>
+            <td>{{ $task->name }}</td>
+            <td>
+                <a href="{{ route('tasks.show', ['task' => $task->id]) }}">Show</a>
+                <form method="POST" action="{{ route('tasks.destroy', ['task' => $task->id]) }}">
+                    @csrf
+                    @method('DELETE')
+                    <input type="submit" value="Delete task" />
+                </form>
+            </td>
         </tr>
-    </thead>
-    <tbody>
-        @foreach($tasks as $task)
-            <tr>
-                <td>{{ $task['id'] }}</td>
-                <td>{{ $task['name'] }}</td>
-                <td><a href="{{ route('tasks.show', ['task' => $task['id']]) }}">Show</a></td>
-            </tr>
-        @endforeach
+    @endforeach
     </tbody>
 </table>
 @endsection
