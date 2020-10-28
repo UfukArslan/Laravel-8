@@ -11,7 +11,7 @@ class TaskController extends Controller
     public function index ()
     {
         // dd('test');
-        $tasks = Task::all();
+        $tasks = Task::paginate(5);
         return view('task.index')->with('tasks', $tasks);
     }
 
