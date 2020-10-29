@@ -18,6 +18,7 @@ class TaskController extends Controller
     public function show( $task )
     {
         $task = Task::find($task);
+        //$task = Task::findOrFail($task);//génére une 404
         return view('task.show')->with('task', $task);
     }
 
