@@ -1,4 +1,3 @@
-
 <?php
 
 namespace App\Providers;
@@ -33,9 +32,9 @@ class AppServiceProvider extends ServiceProvider
             \URL::forceScheme('https');
         }
 
-        Task::observe(TaskObserver::class);
+        //Task::observe(TaskObserver::class);
 
-        Paginator::defaultView('pagination.materialize-css');
-        Paginator::defaultSimpleView('pagination.simple-materialize-css');
+        //Paginator::defaultView('pagination.materialize-css');
+        //Paginator::defaultSimpleView('pagination.simple-materialize-css');
     }
 }
