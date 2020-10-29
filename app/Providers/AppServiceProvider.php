@@ -1,8 +1,10 @@
+
 <?php
 
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Pagination\Paginator;
 
 use App\Models\Task;
 use App\Observers\TaskObserver;
@@ -12,7 +14,7 @@ class AppServiceProvider extends ServiceProvider
     /**
      * Register any application services.
      *
-     * @return voidd
+     * @return void
      */
     public function register()
     {
@@ -32,5 +34,8 @@ class AppServiceProvider extends ServiceProvider
         }
 
         Task::observe(TaskObserver::class);
+
+        Paginator::defaultView('pagination.materialize-css');
+        Paginator::defaultSimpleView('pagination.simple-materialize-css');
     }
 }

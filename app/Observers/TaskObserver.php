@@ -2,7 +2,9 @@
 
 namespace App\Observers;
 
+use App\Mail\NewTask;
 use App\Models\Task;
+use App\Observers\Mail;
 
 class TaskObserver
 {
@@ -14,7 +16,8 @@ class TaskObserver
      */
     public function created(Task $task)
     {
-        echo $task->id . ' created successfuly';
+        //echo $task->id . ' created successfuly';
+        Mail::to(ENV('MAIL_OWNER'))->send(new NewTask());
     }
 
     /**
